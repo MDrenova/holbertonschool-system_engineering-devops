@@ -1,0 +1,30 @@
+Server: A server is a computer or system that provides resources, data, services, or programs to other computers, known as clients, over a network. In theory, whenever computers share resources with client machines they are considered servers.
+
+Domain name
+
+Domain Name: The domain name is the address where Internet users can access your website. In this case, foobar.com is the domain name.
+DNS Record: www in www.foobar.com is a type of DNS record known as a CNAME (Canonical Name). CNAME records can be used to alias one name to another.
+
+Web server
+
+Web Server (Nginx): The role of the web server is to accept incoming requests for webpages (HTTP/HTTPS requests) and serve the webpage content to the user’s browser for rendering.
+
+Application server
+
+Application Server: The application server runs your code. It could be a Python interpreter for a Django application, a Ruby interpreter for a Rails application, or a Node.js runtime for a JavaScript application, etc.
+Application Files: These are the actual codebase for your website. This could be written in any number of languages like Python, Ruby, JavaScript, etc.
+
+Database
+
+Database (MySQL): The database is where you store your site’s dynamic data so it can be retrieved and served in response to HTTP requests.
+The server communicates with the user’s computer using the HTTP/HTTPS protocol.
+
+However, there are some potential issues with this infrastructure:
+
+
+Single point of failure
+
+Single Point of Failure (SPOF): If the single server goes down, the entire website goes down.
+Maintenance Downtime: When deploying new code, the web server often needs to be restarted, causing downtime.
+Scalability: If there’s too much incoming traffic, a single server will not be able to handle the load. This setup does not allow for easy horizontal scaling (adding more servers).
+This is a very basic setup and may not be suitable for larger, high-traffic websites, but it’s a good starting point for smaller projects and for learning about web infrastructure.
