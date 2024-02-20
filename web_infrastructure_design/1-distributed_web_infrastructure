@@ -1,0 +1,29 @@
+1. Two Servers: We have two servers to distribute the load and ensure high availability. If one server fails, the other can continue to serve requests, reducing the risk of downtime.
+
+2. Web Server (Nginx): Nginx is a popular web server that can handle HTTP/HTTPS requests. It serves static content quickly and can also act as a reverse proxy, directing requests to the application server.
+
+3. Application Server: This server runs the application code. It could be a Python interpreter for a Django application, a Ruby interpreter for a Rails application, or a Node.js runtime for a JavaScript application, etc.
+
+4. Load Balancer (HAproxy): The load balancer distributes incoming network traffic across multiple servers to ensure no single server bears too much demand. This improves responsiveness and availability of applications. HAproxy is a widely used load balancer that offers high availability, load balancing, and proxying for TCP and HTTP-based applications.
+
+5. Application Files: These are the actual codebase for your website. This could be written in any number of languages like Python, Ruby, JavaScript, etc.
+
+6. Database (MySQL): MySQL is a popular open-source relational database management system. It’s used to store and retrieve data for the application.
+
+Now, let’s address the specifics:
+
+Distribution Algorithm: The load balancer could be configured with a round-robin distribution algorithm, which cycles through servers in order, distributing requests evenly.
+
+Active-Active vs Active-Passive Setup: In an Active-Active setup, all servers are running and can handle requests. In an Active-Passive setup, the passive server only starts if the active server fails. For high availability, an Active-Active setup is preferred.
+
+Database Primary-Replica Cluster: In a Primary-Replica (Master-Slave) setup, the primary node handles writes and updates, while the replica nodes handle read queries. This setup can improve performance by distributing the load between nodes.
+
+Primary vs Replica Node: The primary node is responsible for handling write operations, while the replica nodes synchronize with the primary node and handle read operations.
+
+Potential issues with this infrastructure:
+
+Single Point of Failure (SPOF): If the load balancer fails, it can cause the entire system to fail.
+
+Security Issues: Without a firewall, the system is vulnerable to attacks. Also, without HTTPS, data is not encrypted and can be intercepted.
+
+No Monitoring: Without monitoring, it’s difficult to identify and troubleshoot issues quickly.
