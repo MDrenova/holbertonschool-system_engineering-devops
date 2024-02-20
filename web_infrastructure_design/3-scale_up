@@ -1,0 +1,7 @@
+1. Additional Server: We add an additional server to distribute the load and ensure high availability. If one server fails, the other can continue to serve requests, reducing the risk of downtime.
+
+2. Load Balancer (HAproxy) Cluster: We configure the existing load balancer with the new one to form a cluster. This provides redundancy, so if one load balancer fails, the other can continue to distribute the load. It also allows for more efficient distribution of traffic.
+
+3. Split Components: We split the web server, application server, and database each into their own server. This allows each component to be scaled independently based on its load. For example, if the application server is under heavy load but the web server and database are not, we can add more application servers without needing to add more web servers or databases.
+
+Web Server vs Application Server: A web server serves static content to the client’s browser, while an application server runs the application code and generates dynamic content. By separating these into their own servers, we can optimize each for its specific task. For example, the web server can be optimized for serving static content quickly, while the application server can be optimized for running the application code efficiently.
