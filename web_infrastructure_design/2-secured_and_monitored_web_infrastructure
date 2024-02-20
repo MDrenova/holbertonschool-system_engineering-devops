@@ -1,0 +1,15 @@
+1. Three Firewalls: Firewalls are added to each server to control incoming and outgoing network traffic based on predetermined security rules. They act as a barrier between a trusted network and an untrusted network. They are used to prevent unauthorized access to or from a private network.
+
+2. SSL Certificate: An SSL certificate is used to serve traffic over HTTPS, which encrypts the data sent between the web server and the client. This prevents attackers from reading or modifying the data, ensuring the privacy and integrity of the transmitted data.
+
+3. Monitoring Clients: Monitoring clients are added to each server to collect data about the system and its operation. This data can be used to identify potential issues, optimize performance, and ensure the system is functioning correctly. The data is typically collected in logs and sent to a monitoring service like Sumologic for analysis.
+
+4. Web Server QPS Monitoring: If you want to monitor your web server’s Queries Per Second (QPS), you can use a monitoring tool that collects this data. This can help you understand the load on your server and identify potential performance issues.
+
+Now, let’s address the potential issues with this infrastructure:
+
+1. Terminating SSL at the Load Balancer: If SSL is terminated at the load balancer, then the traffic between the load balancer and the servers is not encrypted. This could potentially expose sensitive data if the internal network is compromised.
+
+2. Single MySQL Server for Writes: Having only one MySQL server capable of accepting writes is a single point of failure. If this server goes down, then the application cannot update the database until the server is restored.
+
+3. Same Components on All Servers: Having all the same components (database, web server, and application server) on all servers can be a problem because it does not allow for specialized servers based on the load. For example, if the application server is under heavy load but the database server is not, it would be more efficient to have more application servers and fewer database servers.
